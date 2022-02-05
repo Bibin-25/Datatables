@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Datatable</h2>
+<div>
+    <table id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Place
+                </th>
+            </tr>
+        </thead>
+
+    </table>
+</div>
+<link href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section script{
+    
+    <script src="//cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+       
+    <script>
+        $(document).ready(function () {
+            ("#mytable").datatable({
+
+                "Ajax": {
+                    "url":"/MVC/List",
+                    "type": "Get",
+                    "datatype": "json"
+
+                },
+                
+                "columns": [
+                    {
+                        "data": "Name" ,"autowidth": true
+                    },
+                    {
+                        "data": "Place", "autowidth": true
+                    }
+                    ]
+            
+
+
+            });
+
+
+        });
+
+    </script>
+   
+    }
